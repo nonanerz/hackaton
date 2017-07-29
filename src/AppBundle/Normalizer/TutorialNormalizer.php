@@ -18,7 +18,9 @@ class TutorialNormalizer extends ObjectNormalizer
      */
     public function normalize($object, $format = null, array $context = [])
     {
+
         if ($object instanceof Tutorial) {
+
             $data = [
                 'id' => $object->getId(),
                 'name' => $object->getName(),
@@ -27,18 +29,31 @@ class TutorialNormalizer extends ObjectNormalizer
             ];
 
             if (isset($context['groups']) && in_array('Details', $context['groups'])) {
+
                 $data['url'] = $object->getUrl();
             }
-            return $data;
-        }
-        $data = [];
-        foreach ($object as $item) {
-            $data[] = [
-                'id' => $item->getId(),
-                'name' => $item->getName(),
-                'description' => $item->getDescription(),
-                'rating' => $item->getRating()
-            ];
+
+        } else {
+
+            $data = [];
+            /** @var Tutorial $item */
+            foreach ($object as $item) {
+
+                $tutorial = [
+                    'id' => $item->getId(),
+                    'name' => $item->getName(),
+                    'description' => $item->getDescription(),
+                    'rating' => $item->getRating()
+                ];
+
+                if (isset($context['groups']) && in_array('Details', $context['groups'])) {
+
+                    $tutorial['url'] = $item->getUrl();
+                }
+
+                $data[] = $tutorial;
+
+            }
         }
 
 

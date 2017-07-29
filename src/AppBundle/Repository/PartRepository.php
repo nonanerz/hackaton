@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Form\Model\Filter;
+
 /**
  * PartRepository
  *
@@ -10,4 +12,202 @@ namespace AppBundle\Repository;
  */
 class PartRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function selectByFilter(Filter $filter) {
+
+        $qb = $this->createQueryBuilder('p');
+
+        if ($filter->isVilki()) {
+            $qb->andWhere('p.vilki = :vilki')
+                ->setParameter('vilki', $filter->isVilki());
+        }
+
+        if ($filter->isKolesa()) {
+            $qb->andWhere('p.kolesa = :kolesa')
+                ->setParameter('kolesa', $filter->isKolesa());
+        }
+
+        if ($filter->isZvezdy()) {
+            $qb->andWhere('p.zvezdy = :zvezdy')
+                ->setParameter('zvezdy', $filter->isZvezdy());
+        }
+
+        if ($filter->isPerecluchateli()) {
+            $qb->andWhere('p.perecluchateli = :perecluchateli')
+                ->setParameter('perecluchateli', $filter->isPerecluchateli());
+        }
+
+        if ($filter->isTormoza()) {
+            $qb->andWhere('p.tormoza = :tormoza')
+                ->setParameter('tormoza', $filter->isTormoza());
+        }
+
+        if ($filter->isKolodki()) {
+            $qb->andWhere('p.kolodki = :kolodki')
+                ->setParameter('kolodki', $filter->isKolodki());
+        }
+
+        if ($filter->isRuli()) {
+            $qb->andWhere('p.ruli = :ruli')
+                ->setParameter('ruli', $filter->isRuli());
+        }
+
+        if ($filter->isPedali()) {
+            $qb->andWhere('p.pedali = :pedali')
+                ->setParameter('pedali', $filter->isPedali());
+        }
+
+        if ($filter->isKasety()) {
+            $qb->andWhere('p.kasety = :kasety')
+                ->setParameter('kasety', $filter->isKasety());
+        }
+
+        if ($filter->isTsepi()) {
+            $qb->andWhere('p.tsepi = :tsepi')
+                ->setParameter('tsepi', $filter->isTsepi());
+        }
+
+        if ($filter->isKruki()) {
+            $qb->andWhere('p.kruki = :kruki')
+                ->setParameter('kruki', $filter->isKruki());
+        }
+
+        if ($filter->isOboda()) {
+            $qb->andWhere('p.oboda = :oboda')
+                ->setParameter('oboda', $filter->isOboda());
+        }
+
+        if ($filter->isStsepy()) {
+            $qb->andWhere('p.stsepy = :stsepy')
+                ->setParameter('stsepy', $filter->isStsepy());
+        }
+
+        if ($filter->isNasosy()) {
+            $qb->andWhere('p.nasosy = :nasosy')
+                ->setParameter('nasosy', $filter->isNasosy());
+        }
+
+        if ($filter->isBagazhniki()) {
+            $qb->andWhere('p.bagazhniki = :bagazhniki')
+                ->setParameter('bagazhniki', $filter->isBagazhniki());
+        }
+
+        if ($filter->isFonari()) {
+            $qb->andWhere('p.fonari = :fonari')
+                ->setParameter('fonari', $filter->isFonari());
+        }
+
+        if ($filter->isZamki()) {
+            $qb->andWhere('p.zamki = :zamki')
+                ->setParameter('zamki', $filter->isZamki());
+        }
+
+        if ($filter->isVeloSumki()) {
+            $qb->andWhere('p.veloSumki = :veloSumki')
+                ->setParameter('veloSumki', $filter->isVeloSumki());
+        }
+
+        if ($filter->isKrilya()) {
+            $qb->andWhere('p.krilya = :krilya')
+                ->setParameter('krilya', $filter->isKrilya());
+        }
+
+        if ($filter->isShlem()) {
+            $qb->andWhere('p.shlem = :shlem')
+                ->setParameter('shlem', $filter->isShlem());
+        }
+
+        if ($filter->isPerchatki()) {
+            $qb->andWhere('p.perchatki = :perchatki')
+                ->setParameter('perchatki', $filter->isPerchatki());
+        }
+
+        if ($filter->isOchki()) {
+            $qb->andWhere('p.ochki = :ochki')
+                ->setParameter('ochki', $filter->isOchki());
+        }
+
+        if ($filter->isRukzaki()) {
+            $qb->andWhere('p.rukzaki = :rukzaki')
+                ->setParameter('rukzaki', $filter->isRukzaki());
+        }
+
+        if ($filter->isKepki()) {
+            $qb->andWhere('p.kepki = :kepki')
+                ->setParameter('kepki', $filter->isKepki());
+        }
+
+        if ($filter->isNakolenniki()) {
+            $qb->andWhere('p.nakolenniki = :nakolenniki')
+                ->setParameter('nakolenniki', $filter->isNakolenniki());
+        }
+
+        if ($filter->isBachily()) {
+            $qb->andWhere('p.bachily = :bachily')
+                ->setParameter('bachily', $filter->isBachily());
+        }
+
+        if ($filter->isBaffy()) {
+            $qb->andWhere('p.baffy = :baffy')
+                ->setParameter('baffy', $filter->isBaffy());
+        }
+
+        if ($filter->isKomputery()) {
+            $qb->andWhere('p.komputery = :komputery')
+                ->setParameter('komputery', $filter->isKomputery());
+        }
+
+        if ($filter->isZvonki()) {
+            $qb->andWhere('p.zvonki = :zvonki')
+                ->setParameter('zvonki', $filter->isZvonki());
+        }
+
+        if ($filter->isFlyagi()) {
+            $qb->andWhere('p.flyagi = :flyagi')
+                ->setParameter('flyagi', $filter->isFlyagi());
+        }
+
+        if ($filter->isGripsy()) {
+            $qb->andWhere('p.gripsy = :gripsy')
+                ->setParameter('gripsy', $filter->isGripsy());
+        }
+
+        if ($filter->isActionKamery()) {
+            $qb->andWhere('p.actionKamery = :actionKamery')
+                ->setParameter('actionKamery', $filter->isActionKamery());
+        }
+
+        if ($filter->isNakleiki()) {
+            $qb->andWhere('p.nakleiki = :nakleiki')
+                ->setParameter('nakleiki', $filter->isNakleiki());
+        }
+
+        if ($filter->isPodveskaKoles()) {
+            $qb->andWhere('p.podveskaKoles = :podveskaKoles')
+                ->setParameter('podveskaKoles', $filter->isPodveskaKoles());
+        }
+
+        if ($filter->getSearchTerm()) {
+            $qb
+                ->andWhere('p.name = :searchTerm')
+                ->setParameter('search', '%' . $filter->getSearchTerm() . '%');
+            ;
+        }
+
+        if ($filter->getAfterId()) {
+            $qb
+                ->andWhere('p.id > :afterId')
+                ->setParameter('afterId', $filter->getAfterId())
+            ;
+        }
+
+        if ($filter->getBeforeId()) {
+            $qb
+                ->andWhere('p.id < :beforeId')
+                ->setParameter('beforeId', $filter->getBeforeId())
+            ;
+        }
+
+        return $qb->getQuery()->getResult();
+
+    }
 }
