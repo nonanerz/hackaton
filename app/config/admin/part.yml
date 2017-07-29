@@ -1,0 +1,8 @@
+easy_admin:
+    entities:
+        Part:
+            class: AppBundle\Entity\Part
+            list:
+                actions:
+                    - { name: 'delete', label: 'Remove', icon: 'trash' }
+                    - 'edit'
