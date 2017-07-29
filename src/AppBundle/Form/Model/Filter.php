@@ -197,6 +197,11 @@ class Filter
      */
     private $podveskaKoles;
 
+    /**
+     * @var string
+     */
+    private $searchTerm;
+
     public function __construct()
     {
         $this->setLimit();
@@ -804,6 +809,22 @@ class Filter
     public function setPodveskaKoles($podveskaKoles)
     {
         $this->podveskaKoles = $podveskaKoles;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSearchTerm()
+    {
+        return $this->searchTerm;
+    }
+
+    /**
+     * @param string $searchTerm
+     */
+    public function setSearchTerm($searchTerm)
+    {
+        $this->searchTerm = $searchTerm;
     }
 
 

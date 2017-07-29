@@ -186,5 +186,28 @@ class PartRepository extends \Doctrine\ORM\EntityRepository
                 ->setParameter('podveskaKoles', $filter->isPodveskaKoles());
         }
 
+        if ($filter->getSearchTerm()) {
+            $qb
+                ->andWhere('p.name = :searchTerm')
+                ->setParameter('search', '%' . $filter->getSearchTerm() . '%');
+            ;
+        }
+
+        if ($filter->getAfterId()) {
+            $qb
+                ->andWhere('p.id > :afterId')
+                ->setParameter('afterId', $filter->getAfterId())
+            ;
+        }
+
+        if ($filter->getBeforeId()) {
+            $qb
+                ->andWhere('p.id < :beforeId')
+                ->setParameter('beforeId', $filter->getBeforeId())
+            ;
+        }
+
+        return $qb->getQuery()->getResult();
+
     }
 }

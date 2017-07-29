@@ -46,7 +46,7 @@ class PartsController extends Controller
 
         $parts = $this->getDoctrine()->getRepository(Part::class)->selectByFilter($partFilter);
 
-        return $this->json([]);
+        return $this->json(['parts' => $parts]);
     }
 
     /**
