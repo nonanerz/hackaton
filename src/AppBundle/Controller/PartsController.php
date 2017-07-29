@@ -4,9 +4,11 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Part;
 use AppBundle\Exception\JsonHttpException;
+use AppBundle\Form\Model\Filter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class PartsController extends Controller
 {
@@ -17,6 +19,20 @@ class PartsController extends Controller
     public function listAction()
     {
         return $this->json(['parts' => $this->getDoctrine()->getRepository(Part::class)->findAll()]);
+    }
+
+    /**
+     * @Route("/parts/search", name="part_search")
+     * @Method({"GET"})
+     */
+    public function searchPartAction(Request $request)
+    {
+        $partFilter = new Filter();
+        $form = $this->createForm(PartFilterType::class, $partFilter);
+
+        $this->handleJsonForm($form, $request);
+
+        return $this->json([]);
     }
 
     /**
