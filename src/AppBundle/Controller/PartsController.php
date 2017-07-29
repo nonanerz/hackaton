@@ -21,19 +21,19 @@ class PartsController extends Controller
         return $this->json(['parts' => $this->getDoctrine()->getRepository(Part::class)->findAll()]);
     }
 
-    /**
-     * @Route("/parts/search", name="part_search")
-     * @Method({"GET"})
-     */
-    public function searchPartAction(Request $request)
-    {
-        $partFilter = new Filter();
-        $form = $this->createForm(PartFilterType::class, $partFilter);
-
-        $this->handleJsonForm($form, $request);
-
-        return $this->json([]);
-    }
+//    /**
+//     * @Route("/parts/search", name="part_search")
+//     * @Method({"GET"})
+//     */
+//    public function searchPartAction(Request $request)
+//    {
+//        $partFilter = new Filter();
+//        $form = $this->createForm(PartFilterType::class, $partFilter);
+//
+//        $this->handleJsonForm($form, $request);
+//
+//        return $this->json([]);
+//    }
 
     /**
      * @Route("/parts/{id}", name="part_show")
