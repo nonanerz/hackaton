@@ -30,7 +30,24 @@ class TutorialController extends Controller
         if (!($tutorial = $this->getDoctrine()->getRepository(Tutorial::class)->find($id))) {
             throw new JsonHttpException(404, 'Tutorial not found.');
         }
-        return $this->json($this->getDoctrine()->getRepository(Tutorial::class)->find($id), 200, [], [AbstractNormalizer::GROUPS => ['Details']]);
+        return $this->json($tutorial, 200, [], [AbstractNormalizer::GROUPS => ['Details']]);
+    }
+
+    /**
+     * @Route("/tutorials/{id}")
+     * @Method({"PUT"})
+     */
+    public function incrementViewAction($id)
+    {
+        /** @var Tutorial $tutorial */
+        if (($tutorial = $this->getDoctrine()->getRepository(Tutorial::class)->find($id))) {
+
+            $tutorial->setRating($tutorial->getRating() + 1);
+            $this->getDoctrine()->getManager()->flush();
+
+        }
+
+        return $this->json($tutorial);
     }
 
 }

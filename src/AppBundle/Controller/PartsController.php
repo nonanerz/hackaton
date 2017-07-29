@@ -14,19 +14,10 @@ use Symfony\Component\HttpFoundation\Request;
 class PartsController extends Controller
 {
     /**
-     * @Route("/parts", name="parts_list")
+     * @Route("/parts", name="part_list")
      * @Method({"GET"})
      */
-    public function listAction()
-    {
-        return $this->json(['parts' => $this->getDoctrine()->getRepository(Part::class)->findAll()]);
-    }
-
-    /**
-     * @Route("/parts/search", name="part_search")
-     * @Method({"GET"})
-     */
-    public function searchPartAction(Request $request)
+    public function ListAction(Request $request)
     {
         $partFilter = new Filter();
 
