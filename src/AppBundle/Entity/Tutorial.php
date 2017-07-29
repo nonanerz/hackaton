@@ -4,12 +4,13 @@ namespace AppBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TutorialRepository")
  */
-class Tutorial implements \JsonSerializable
+class Tutorial
 {
     /**
      * @ORM\Id
@@ -35,6 +36,7 @@ class Tutorial implements \JsonSerializable
 
     /**
      * @ORM\Column(type="string")
+     * @Groups({"Details"})
      */
     private $url;
 
@@ -144,14 +146,4 @@ class Tutorial implements \JsonSerializable
         return $this->url;
     }
 
-    function jsonSerialize()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'description' => $this->getDescription(),
-            'rating' => $this->getRating(),
-            'url' => $this->getUrl()
-        ];
-    }
 }
