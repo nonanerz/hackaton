@@ -7,9 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="shop")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ShopRepository")
  */
-class Shop
+class Shop implements \JsonSerializable
 {
     /**
      * @ORM\Id
@@ -37,6 +37,16 @@ class Shop
      * @ORM\Column(type="float")
      */
     private $lat;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $city;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $postcode;
 
     /**
      * Get id
@@ -142,5 +152,66 @@ class Shop
     public function getLat()
     {
         return $this->lat;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     *
+     * @return Shop
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set postcode
+     *
+     * @param string $postcode
+     *
+     * @return Shop
+     */
+    public function setPostcode($postcode)
+    {
+        $this->postcode = $postcode;
+
+        return $this;
+    }
+
+    /**
+     * Get postcode
+     *
+     * @return string
+     */
+    public function getPostcode()
+    {
+        return $this->postcode;
+    }
+
+    function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'address' => $this->getAddress(),
+            'lng' => $this->getLng(),
+            'lat' => $this->getLat(),
+            'city' => $this->getCity(),
+            'postcode' => $this->getPostcode(),
+        ];
     }
 }

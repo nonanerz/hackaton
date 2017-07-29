@@ -1,0 +1,25 @@
+AppBundle\Entity\PartCategory:
+  category_{1..5}:
+    name: '<firstName()>'
+
+AppBundle\Entity\Part:
+  part_{1..20}:
+    category: '@category_*'
+    name: '<firstName()>'
+    description: 'asdadasdasdasd'
+
+AppBundle\Entity\Shop:
+  shop_{1..30}:
+    name: '<firstName()>'
+    address: '<streetAddress()>'
+    postcode: '<postcode()>'
+    city: '<city()>'
+    lng: '<longitude(50, 60)>'
+    lat: '<latitude(-8, 2)>'
+
+AppBundle\Entity\Tutorial:
+  tutorial_{1..30}:
+    name: '<firstName()>'
+    description: 'asdadasdasdasd'
+    rating: '<numberBetween(0, 20)>'
+    url: 'https://google.com'
