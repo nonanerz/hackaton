@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PartRepository")
  */
-class Part
+class Part implements \JsonSerializable
 {
     /**
      * @ORM\Id
@@ -31,7 +31,7 @@ class Part
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartCategory", inversedBy="parts")
      */
-    private $categoty;
+    private $category;
 
 
     /**
@@ -91,28 +91,38 @@ class Part
     {
         return $this->description;
     }
+    
 
     /**
-     * Set categoty
+     * Set category
      *
-     * @param \AppBundle\Entity\PartCategory $categoty
+     * @param \AppBundle\Entity\PartCategory $category
      *
      * @return Part
      */
-    public function setCategoty(\AppBundle\Entity\PartCategory $categoty = null)
+    public function setCategory(\AppBundle\Entity\PartCategory $category = null)
     {
-        $this->categoty = $categoty;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Get categoty
+     * Get category
      *
      * @return \AppBundle\Entity\PartCategory
      */
-    public function getCategoty()
+    public function getCategory()
     {
-        return $this->categoty;
+        return $this->category;
+    }
+
+    function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'description' => $this->getDescription()
+        ];
     }
 }

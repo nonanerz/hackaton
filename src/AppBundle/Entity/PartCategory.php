@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PartCategoryRepository")
  */
-class PartCategory
+class PartCategory implements \JsonSerializable
 {
     /**
      * @ORM\Id
@@ -25,7 +25,7 @@ class PartCategory
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Part", mappedBy="categoty")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Part", mappedBy="category")
      */
     private $parts;
 
@@ -102,4 +102,13 @@ class PartCategory
     {
         return $this->parts;
     }
+
+    function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName()
+        ];
+    }
+
 }

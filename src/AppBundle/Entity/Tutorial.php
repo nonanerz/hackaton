@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TutorialRepository")
  */
-class Tutorial
+class Tutorial implements \JsonSerializable
 {
     /**
      * @ORM\Id
@@ -32,6 +32,11 @@ class Tutorial
      * @ORM\Column(type="integer", nullable=true)
      */
     private $rating;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $url;
 
     /**
      * Get id
@@ -113,5 +118,40 @@ class Tutorial
     public function getRating()
     {
         return $this->rating;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return Tutorial
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'description' => $this->getDescription(),
+            'rating' => $this->getRating(),
+            'url' => $this->getUrl()
+        ];
     }
 }

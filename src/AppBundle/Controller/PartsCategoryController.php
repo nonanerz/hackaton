@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Part;
 use AppBundle\Entity\PartCategory;
 use AppBundle\Exception\JsonHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -16,7 +17,7 @@ class PartsCategoryController extends Controller
      */
     public function listAction()
     {
-        return $this->json($this->getDoctrine()->getRepository(PartCategory::class)->findAll());
+        return $this->json(['categories' => $this->getDoctrine()->getRepository(PartCategory::class)->findAll()]);
     }
 
     /**
@@ -30,7 +31,7 @@ class PartsCategoryController extends Controller
             throw new JsonHttpException(404, 'Category not found.');
         }
 
-        return $this->json(['parts' => $category->getParts()]);
+        return $this->json(['parts' => $this->getDoctrine()->getRepository(Part::class)->findBy(['category' => $category])]);
     }
 
 }

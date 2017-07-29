@@ -16,7 +16,7 @@ class PartsController extends Controller
      */
     public function listAction()
     {
-        return $this->json($this->getDoctrine()->getRepository(Part::class)->findAll());
+        return $this->json(['parts' => $this->getDoctrine()->getRepository(Part::class)->findAll()]);
     }
 
     /**
@@ -30,7 +30,7 @@ class PartsController extends Controller
             throw new JsonHttpException(404, 'Part not found.');
         }
 
-        return $this->json([$part]);
+        return $this->json($part);
     }
 
 }

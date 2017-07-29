@@ -15,7 +15,7 @@ class ShopController extends Controller
      */
     public function listAction()
     {
-        return $this->json($this->getDoctrine()->getRepository(Shop::class)->findAll());
+        return $this->json(['shops' => $this->getDoctrine()->getRepository(Shop::class)->findAll()]);
     }
 
 }
