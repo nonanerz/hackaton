@@ -4,8 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5149654f2cc385e7adbe448274b23072",
+    "content-hash": "56d262f6f2f8783486cc43188969654c",
     "packages": [
+        {
+            "name": "behat/transliterator",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Behat/Transliterator.git",
+                "reference": "826ce7e9c2a6664c0d1f381cbb38b1fb80a7ee2c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Behat/Transliterator/zipball/826ce7e9c2a6664c0d1f381cbb38b1fb80a7ee2c",
+                "reference": "826ce7e9c2a6664c0d1f381cbb38b1fb80a7ee2c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "chuyskywalker/rolling-curl": "^3.1",
+                "php-yaoi/php-yaoi": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\Transliterator": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Artistic-1.0"
+            ],
+            "description": "String transliterator",
+            "keywords": [
+                "i18n",
+                "slug",
+                "transliterator"
+            ],
+            "time": "2017-04-04T11:38:05+00:00"
+        },
         {
             "name": "composer/ca-bundle",
             "version": "1.0.7",
@@ -988,6 +1032,120 @@
                 "sql"
             ],
             "time": "2014-01-12T16:20:24+00:00"
+        },
+        {
+            "name": "knplabs/doctrine-behaviors",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/DoctrineBehaviors.git",
+                "reference": "c41433f5519d791d2fbdb2164633035c173b9db1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/c41433f5519d791d2fbdb2164633035c173b9db1",
+                "reference": "c41433f5519d791d2fbdb2164633035c173b9db1",
+                "shasum": ""
+            },
+            "require": {
+                "behat/transliterator": "~1.0",
+                "doctrine/common": ">=2.2",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "doctrine/orm": ">=2.2",
+                "ext-pdo_mysql": "*",
+                "ext-pdo_pgsql": "*",
+                "ext-pdo_sqlite": "*",
+                "hexmedia/yaml-linter": "~0.1",
+                "jakub-onderka/php-parallel-lint": "~0.8",
+                "phpunit/phpunit": "~4.8"
+            },
+            "suggest": {
+                "symfony/framework-bundle": "To be able to use it as a bundle"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Knp\\DoctrineBehaviors\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Knplabs",
+                    "homepage": "http://knplabs.com"
+                }
+            ],
+            "description": "Doctrine2 behavior traits",
+            "homepage": "http://knplabs.com",
+            "keywords": [
+                "Blameable",
+                "behaviors",
+                "doctrine2",
+                "filterable",
+                "softdeletable",
+                "timestampable",
+                "translatable",
+                "tree"
+            ],
+            "time": "2016-09-30T06:03:12+00:00"
+        },
+        {
+            "name": "mcfedr/json-form",
+            "version": "3.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mcfedr/json-form.git",
+                "reference": "8b9311567fb7f876579933a8f3a9894e40b889b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mcfedr/json-form/zipball/8b9311567fb7f876579933a8f3a9894e40b889b6",
+                "reference": "8b9311567fb7f876579933a8f3a9894e40b889b6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5",
+                "symfony/symfony": "~2.8|~3.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.1",
+                "phpunit/phpunit": "~4.3",
+                "sensio/framework-extra-bundle": "~3.0",
+                "symfony/monolog-bundle": "~2.3|^3.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Mcfedr\\JsonFormBundle\\": "src/Mcfedr/JsonFormBundle"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fred Cox",
+                    "email": "mcfedr@gmail.com"
+                }
+            ],
+            "description": "A couple of helper files for handling json with symfony forms",
+            "keywords": [
+                "Forms",
+                "json",
+                "symfony"
+            ],
+            "time": "2017-02-14T14:37:07+00:00"
         },
         {
             "name": "monolog/monolog",

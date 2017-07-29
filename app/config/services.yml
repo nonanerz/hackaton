@@ -37,3 +37,4 @@ services:
     AppBundle\Exception\JsonExceptionListener:
         tags:
             - { name: 'kernel.event_listener', event: 'kernel.exception', method: 'onKernelException' }
+

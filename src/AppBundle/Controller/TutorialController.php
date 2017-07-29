@@ -4,7 +4,6 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Tutorial;
 use AppBundle\Exception\JsonHttpException;
-use AppBundle\Normalizer\TutorialNormalizer;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,22 +15,22 @@ class TutorialController extends Controller
      * @Route("/tutorials", name="tutorials_list")
      * @Method({"GET"})
      */
-    public function listAction(TutorialNormalizer $normalizer)
+    public function listAction()
     {
-        return $this->json(['tutorials' => $normalizer->normalize($this->getDoctrine()->getRepository(Tutorial::class)->findAll())]);
+        return $this->json(['tutorials' => $this->getDoctrine()->getRepository(Tutorial::class)->findBy([], ['rating' => 'DESC'])]);
     }
 
     /**
      * @Route("/tutorials/{id}", name="tutorials_watch")
      * @Method({"GET"})
      */
-    public function watchAction($id, TutorialNormalizer $normalizer)
+    public function watchAction($id)
     {
         /** @var Tutorial $tutorial */
         if (!($tutorial = $this->getDoctrine()->getRepository(Tutorial::class)->find($id))) {
             throw new JsonHttpException(404, 'Tutorial not found.');
         }
-        return $this->json($normalizer->normalize($this->getDoctrine()->getRepository(Tutorial::class)->find($id), [], [AbstractNormalizer::GROUPS => ['Details']]));
+        return $this->json($this->getDoctrine()->getRepository(Tutorial::class)->find($id), 200, [], [AbstractNormalizer::GROUPS => ['Details']]);
     }
 
 }

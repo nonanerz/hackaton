@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 
 /**
  * @ORM\Entity
@@ -11,6 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Shop implements \JsonSerializable
 {
+    use Timestampable;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
