@@ -1,0 +1,21 @@
+easy_admin:
+    entities:
+        Shop:
+            class: AppBundle\Entity\Shop
+            list:
+                actions:
+                    - { name: 'show', label: '', icon: 'search'}
+                    - { name: 'delete', label: '', icon: 'trash' }
+                    - { name: 'edit', label: '', icon: 'edit' }
+                title: 'Shops'
+                fields:
+                  - 'name'
+                  - 'address'
+                  - 'city'
+                  - 'postcode'
+            form:
+                fields:
+                  - 'name'
+                  - 'address'
+                  - 'city'
+                  - 'postcode'

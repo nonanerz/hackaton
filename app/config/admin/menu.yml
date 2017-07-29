@@ -1,0 +1,6 @@
+easy_admin:
+    design:
+        menu:
+            - { entity: 'Part', label: 'Part' }
+            - { entity: 'Tutorial', label: 'Tutorials' }
+            - { entity: 'Shop', label: 'Shops' }

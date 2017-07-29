@@ -33,7 +33,6 @@ class Part implements \JsonSerializable
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartCategory", inversedBy="parts")
-     * @ORM\Column(type="string")
      */
     private $category;
 
@@ -43,216 +42,216 @@ class Part implements \JsonSerializable
     private $price;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $url;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $image;
 
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $vilki;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $kolesa;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $zvezdy;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $perecluchateli;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $tormoza;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $kolodki;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $ruli;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $pedali;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $kasety;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $tsepi;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $kruki;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $oboda;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $stsepy;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $nasosy;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $bagazhniki;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $fonari;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $zamki;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $veloSumki;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $krilya;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $shlem;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $perchatki;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $ochki;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $rukzaki;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $kepki;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $nakolenniki;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $bachily;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $baffy;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $komputery;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $zvonki;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $flyagi;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $gripsy;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $actionKamery;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $nakleiki;
     /**
      * @var boolean
-     * @ORM\Column(type="boolean", options={"default"=0})
+     * @ORM\Column(type="boolean", options={"default"=0}, nullable=true)
      *
      */
     private $podveskaKoles;
