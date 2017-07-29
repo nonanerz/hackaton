@@ -4,5 +4,24 @@ easy_admin:
             class: AppBundle\Entity\Part
             list:
                 actions:
-                    - { name: 'delete', label: 'Remove', icon: 'trash' }
-                    - 'edit'
+                    - { name: 'show', label: '', icon: 'search'}
+                    - { name: 'delete', label: '', icon: 'trash' }
+                    - { name: 'edit', label: '', icon: 'edit' }
+                fields:
+                  - 'name'
+                  - 'description'
+                  - 'price'
+                  - { property: 'url', type: 'url' }
+
+                title: 'Parts'
+
+
+            form:
+                fields:
+                  - 'name'
+                  - 'description'
+                  - 'price'
+                  - { property: 'url', type: 'url', label: 'Web page' }
+                  - { property: 'image', type: 'file' }
+                  - { property: 'category', type: 'entity', type_options: {choice_label: 'name', class: AppBundle\Entity\PartCategory}}
+

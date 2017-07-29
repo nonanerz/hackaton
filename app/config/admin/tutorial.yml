@@ -4,5 +4,17 @@ easy_admin:
             class: AppBundle\Entity\Tutorial
             list:
                 actions:
-                    - { name: 'delete', label: 'Remove', icon: 'trash' }
-                    - 'edit'
+                    - { name: 'show', label: '', icon: 'search'}
+                    - { name: 'delete', label: '', icon: 'trash' }
+                    - { name: 'edit', label: '', icon: 'edit' }
+                fields:
+                  - 'name'
+                  - 'description'
+                  - 'rating'
+                  - { property: 'url', type: 'url' }
+
+            form:
+                fields:
+                  - 'name'
+                  - 'description'
+                  - { property: 'url', type: 'url' }
