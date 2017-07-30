@@ -10,6 +10,7 @@ AppBundle\Entity\PartCategory:
 
 AppBundle\Entity\Part:
   part_{1..20}:
+    category: '@category_*'
     name: '<firstName()>'
     description: 'asdadasdasdasd'
     price: '<numberBetween(100, 3000)>'
