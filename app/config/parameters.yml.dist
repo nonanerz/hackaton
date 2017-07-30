@@ -15,5 +15,11 @@ parameters:
     mailer_user: ~
     mailer_password: ~
 
+    aws_key: fake_aws_key
+    aws_secret: fake_aws_secret
+    aws_region: eu-west-1
+    aws_s3_bucket: fake_aws_s3_bucket
+    aws_s3_prefix: ~
+
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt

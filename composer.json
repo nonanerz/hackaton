@@ -21,6 +21,7 @@
     },
     "require": {
         "php": ">=5.5.9",
+        "aws/aws-sdk-php": "^3.32",
         "doctrine/annotations": "1.4.*",
         "doctrine/cache": "1.6.*",
         "doctrine/collections": "1.4.*",
