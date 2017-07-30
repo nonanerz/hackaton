@@ -2,19 +2,21 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Tutorial;
+use AppBundle\Exception\JsonHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 
-class DefaultController extends Controller
+class DelaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
-     * @Method({"GET"})
+     * @Route("/")
      */
     public function indexAction()
     {
-        return $this->redirectToRoute('categories_list');
+        return $this->redirect('/admin');
     }
 
 }

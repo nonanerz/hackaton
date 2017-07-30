@@ -10,8 +10,8 @@ easy_admin:
                 fields:
                   - 'name'
                   - 'description'
-                  - 'kind.name'
-                  - { property: 'image.url', type: 'image' }
+                  - { property: 'kind.name', label: 'Category' }
+                  - { property: 'image.url', type: 'image', label: 'Photo' }
 
                 title: 'Parts'
             show:
@@ -19,9 +19,9 @@ easy_admin:
                   - 'name'
                   - 'description'
                   - 'price'
-                  - 'kind.name'
+                  - { property: 'kind.name', label: 'Category' }
                   - { property: 'url', type: 'url' }
-                  - { property: 'image.url', type: 'image' }
+                  - { property: 'image.url', type: 'image', label: 'Photo' }
 
 
 

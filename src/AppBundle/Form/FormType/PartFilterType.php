@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form\FormType;
 
+use AppBundle\Entity\PartCategory;
 use AppBundle\Entity\PartKind;
 use AppBundle\Form\Model\Filter;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -28,7 +29,13 @@ class PartFilterType extends AbstractType
             ])
             ->add('kind', EntityType::class, [
                 'required' => false,
+                'label' => 'Type',
                 'class' => PartKind::class,
+                'choice_label' => 'id'
+            ])
+            ->add('category', EntityType::class, [
+                'required' => false,
+                'class' => PartCategory::class,
                 'choice_label' => 'id'
             ])
         ;
