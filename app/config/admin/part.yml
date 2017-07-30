@@ -10,18 +10,18 @@ easy_admin:
                 fields:
                   - 'name'
                   - 'description'
-                  - 'price'
-                  - { property: 'url', type: 'url' }
+                  - 'kind.name'
+                  - { property: 'image.url', type: 'image' }
 
                 title: 'Parts'
-
-
-            form:
+            show:
                 fields:
                   - 'name'
                   - 'description'
                   - 'price'
-                  - { property: 'url', type: 'url', label: 'Web page' }
-                  - { property: 'image', type: 'file' }
-                  - { property: 'category', type: 'entity', type_options: {choice_label: 'name', class: AppBundle\Entity\PartCategory}}
+                  - 'kind.name'
+                  - { property: 'url', type: 'url' }
+                  - { property: 'image.url', type: 'image' }
+
+
 

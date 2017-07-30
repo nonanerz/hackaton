@@ -9,9 +9,9 @@ use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 
 /**
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PartCategoryRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PartKindRepository")
  */
-class PartCategory implements \JsonSerializable
+class PartKind
 {
     use Timestampable;
 
@@ -23,18 +23,23 @@ class PartCategory implements \JsonSerializable
     private $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", unique=true)
      */
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Part", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Part", mappedBy="kind")
      */
     private $parts;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartCategory")
+     */
+    private $category;
+
     public function __construct()
     {
-        $this->parts =  new ArrayCollection();
+        $this->parts = new ArrayCollection();
     }
 
 
@@ -53,7 +58,7 @@ class PartCategory implements \JsonSerializable
      *
      * @param string $name
      *
-     * @return PartCategory
+     * @return PartKind
      */
     public function setName($name)
     {
@@ -75,11 +80,11 @@ class PartCategory implements \JsonSerializable
     /**
      * Add part
      *
-     * @param Part $part
+     * @param \AppBundle\Entity\Part $part
      *
-     * @return PartCategory
+     * @return PartKind
      */
-    public function addPart(Part $part)
+    public function addPart(\AppBundle\Entity\Part $part)
     {
         $this->parts[] = $part;
 
@@ -106,12 +111,27 @@ class PartCategory implements \JsonSerializable
         return $this->parts;
     }
 
-    function jsonSerialize()
+    /**
+     * Set category
+     *
+     * @param \AppBundle\Entity\PartCategory $category
+     *
+     * @return PartKind
+     */
+    public function setCategory(\AppBundle\Entity\PartCategory $category = null)
     {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName()
-        ];
+        $this->category = $category;
+
+        return $this;
     }
 
+    /**
+     * Get category
+     *
+     * @return \AppBundle\Entity\PartCategory
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 }

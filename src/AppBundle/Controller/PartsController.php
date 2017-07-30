@@ -17,7 +17,7 @@ class PartsController extends Controller
      * @Route("/parts", name="part_list")
      * @Method({"GET"})
      */
-    public function ListAction(Request $request)
+    public function listAction(Request $request)
     {
         $partFilter = new Filter();
 
@@ -25,6 +25,7 @@ class PartsController extends Controller
             $form = $this->createForm(PartFilterType::class, $partFilter);
 
             $form->handleRequest($request);
+
 
             if (!$form->isValid()) {
                 $out = [];
@@ -44,7 +45,7 @@ class PartsController extends Controller
      * @Route("/parts/{id}", name="part_show")
      * @Method({"GET"})
      */
-    public function showPartAction($id)
+    public function showAction($id)
     {
         /** @var Part $part */
         if (!($part = $this->getDoctrine()->getRepository(Part::class)->find($id))) {

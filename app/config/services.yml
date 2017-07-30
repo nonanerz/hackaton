@@ -38,3 +38,23 @@ services:
         tags:
             - { name: 'kernel.event_listener', event: 'kernel.exception', method: 'onKernelException' }
 
+#Aws
+    Aws\S3\S3Client:
+        arguments:
+            -
+                region: "%aws_region%"
+                version: "2006-03-01"
+                signature_version: v4
+                credentials:
+                    key: "%aws_key%"
+                    secret: "%aws_secret%"
+
+    AppBundle\Aws\S3Manager:
+        arguments:
+            - "%aws_s3_bucket%"
+            - "%aws_s3_prefix%"
+
+    AppBundle\Listener\FileSubscriber:
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+

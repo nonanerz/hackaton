@@ -1,12 +1,21 @@
 AppBundle\Entity\PartCategory:
-  category_{1..5}:
-    name: '<firstName()>'
+  category_1:
+    name: 'Запчасти'
+  category_2:
+    name: 'Аксессуары'
+  category_3:
+    name: 'Экипировка'
+  category_4:
+    name: 'Тюнинг'
 
 AppBundle\Entity\Part:
   part_{1..20}:
     category: '@category_*'
     name: '<firstName()>'
     description: 'asdadasdasdasd'
+    price: '<numberBetween(100, 3000)>'
+    url: 'https://google.com'
+    kind: '@partKind_*'
 
 AppBundle\Entity\Shop:
   shop_{1..30}:
@@ -23,3 +32,24 @@ AppBundle\Entity\Tutorial:
     description: 'asdadasdasdasd'
     rating: '<numberBetween(0, 20)>'
     url: 'https://google.com'
+
+AppBundle\Entity\PartKind:
+  partKind_{Вилки, Колеса, Звезды, Переключатели, Тормоза, Колодки, Рули, Педали, Кассеты, Цепи, Каретки, Крюки, Обода, Спицы}:
+      name: '<current()>'
+      category: '@category_1'
+
+
+  partKind_{Насосы, Багажники, Фонари, Замки, Велосумки, Крылья, Велоаптечка, Кресла, Зеркала }:
+      name: '<current()>'
+      category: '@category_2'
+
+
+  partKind_{Шлемы, Перчатки, Очки,Рюкзаки,Велобанданы,Наколенники,Велобахилы,Баффы }:
+      name: '<current()>'
+      category: '@category_3'
+
+
+  partKind_{Велокомпютеры,Звонки,Фляги, Грипсы,Экшн камера, Наклейки,Подсветка колес }:
+      name: '<current()>'
+      category: '@category_4'
+
