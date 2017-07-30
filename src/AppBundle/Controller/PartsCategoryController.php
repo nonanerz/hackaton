@@ -24,14 +24,14 @@ class PartsCategoryController extends Controller
      * @Route("/categories/{id}", name="categories_show")
      * @Method({"GET"})
      */
-    public function showCategoryAction($id)
+    public function showAction($id)
     {
         /** @var PartCategory $category */
         if (!($category = $this->getDoctrine()->getRepository(PartCategory::class)->find($id))) {
             throw new JsonHttpException(404, 'Category not found.');
         }
 
-        return $this->json(['parts' => $this->getDoctrine()->getRepository(Part::class)->findBy(['category' => $category])]);
+        return $this->json($category);
     }
 
 }

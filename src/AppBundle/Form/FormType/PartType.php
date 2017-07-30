@@ -30,12 +30,19 @@ class PartType extends AbstractType
             ->add('name', TextType::class)
             ->add('description', TextType::class, ['required' => false])
             ->add('price', NumberType::class, ['required' => false])
-            ->add('url', UrlType::class, ['required' => false])
-            ->add('tmpFile', FileType::class, ['required' => false])
+            ->add('url', UrlType::class, [
+                'required' => false,
+                'label' => 'Website'
+            ])
+            ->add('tmpFile', FileType::class, [
+                'required' => false,
+                'label' => 'Photo'
+                ])
 
             ->add('kind', EntityType::class, [
                 'class' => PartKind::class,
-                'choice_label' => 'name'
+                'choice_label' => 'name',
+                'label' => 'Type'
             ])
             ->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {
                 /** @var Part $part */

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form\Model;
 
+use AppBundle\Entity\PartCategory;
 use AppBundle\Entity\PartKind;
 
 class Filter
@@ -37,6 +38,11 @@ class Filter
      * @var PartKind
      */
     private $kind;
+
+    /**
+     * @var PartCategory
+     */
+    private $category;
 
     public function __construct()
     {
@@ -96,7 +102,7 @@ class Filter
      *
      * @return $this
      */
-    public function setLimit($limit = self::LIMIT_50)
+    public function setLimit($limit = null)
     {
         $this->limit = $limit;
 
@@ -135,6 +141,21 @@ class Filter
         $this->kind = $kind;
     }
 
+    /**
+     * @return PartCategory
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param PartCategory $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
 
 
     public static function getLimits()

@@ -155,7 +155,9 @@ class Part implements \JsonSerializable
             'description' => $this->getDescription(),
             'price' => $this->getPrice(),
             'url' => $this->getUrl(),
-            'image' => $this->getImage()
+            'image' => $this->getImage(),
+            'category' => $this->getCategory() instanceof PartCategory ? $this->getCategory()->getId() : null,
+            'kind' => $this->getKind() instanceof PartKind ? $this->getKind()->getId() : null
         ];
     }
 

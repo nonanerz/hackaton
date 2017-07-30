@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Part;
+use AppBundle\Entity\PartCategory;
 use AppBundle\Exception\JsonHttpException;
 use AppBundle\Form\FormType\PartFilterType;
 use AppBundle\Form\Model\Filter;

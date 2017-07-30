@@ -22,25 +22,32 @@ class PartRepository extends \Doctrine\ORM\EntityRepository
                 ->setParameter('kind', $filter->getKind());
         }
 
+        if ($filter->getCategory()) {
+            $qb
+                ->andWhere('p.category = :category')
+                ->setParameter('category', $filter->getCategory());
+        }
+
         if ($filter->getSearchTerm()) {
             $qb
                 ->andWhere('p.name = :searchTerm')
                 ->setParameter('search', '%' . $filter->getSearchTerm() . '%');
-            ;
         }
 
         if ($filter->getAfterId()) {
             $qb
                 ->andWhere('p.id > :afterId')
-                ->setParameter('afterId', $filter->getAfterId())
-            ;
+                ->setParameter('afterId', $filter->getAfterId());
         }
 
         if ($filter->getBeforeId()) {
             $qb
                 ->andWhere('p.id < :beforeId')
-                ->setParameter('beforeId', $filter->getBeforeId())
-            ;
+                ->setParameter('beforeId', $filter->getBeforeId());
+        }
+
+        if ($filter->getLimit()) {
+            $qb->setMaxResults($filter->getLimit());
         }
 
         return $qb->getQuery()->getResult();
