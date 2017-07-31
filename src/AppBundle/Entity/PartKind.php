@@ -9,7 +9,6 @@ use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 
 /**
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PartKindRepository")
  */
 class PartKind
 {
